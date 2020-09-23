@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory
 import android.opengl.GLES20
 import android.opengl.GLUtils
 import android.util.Log
+import com.sven.opengldemo.airhockey.ShaderHelper
 
 /**
  *Create by Sven
@@ -35,5 +36,23 @@ object TextureHelper {
         //解除绑定
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,0)
         return textureObjs[0]
+    }
+
+    fun buildProgram(vertexShaderSource:String,fragmentShaderSource:String):Int{
+        val vertexShader =ShaderHelper.compileVertexShader(vertexShaderSource)
+        val fragShader = ShaderHelper.compileFragShader(fragmentShaderSource)
+//        val program = GLES20.glCreateProgram()
+//        GLES20.glAttachShader(program,vertexShader)
+//        GLES20.glAttachShader(program,fragShader)
+//        GLES20.glLinkProgram(program)
+        val program = ShaderHelper.linkProgram(vertexShader,fragShader)
+        return program
+    }
+
+    fun compileShader(type:Int,shaderCode:String):Int{
+        val shaderId = GLES20.glCreateShader(type)
+        GLES20.glShaderSource(shaderId,shaderCode)
+        GLES20.glCompileShader(shaderId)
+        return shaderId
     }
 }

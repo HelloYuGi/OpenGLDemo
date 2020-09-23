@@ -24,9 +24,9 @@ class Table {
         vertexArray = VertexArray(VERTEX_DATA)
     }
 
-    fun bindData(){
-        vertexArray.setVertexAttriPointer(0,1,POSITION_COMPONENT_COUNT,STRIDE)
-        vertexArray.setVertexAttriPointer(POSITION_COMPONENT_COUNT,1,TEXTURE_COORDINATES_COUNT,STRIDE)
+    fun bindData(textureShaderProgram: TextureShaderProgram){
+        vertexArray.setVertexAttriPointer(0,textureShaderProgram.aPositionLocation,POSITION_COMPONENT_COUNT,STRIDE)
+        vertexArray.setVertexAttriPointer(POSITION_COMPONENT_COUNT,textureShaderProgram.aTextureCoordinateLocation,TEXTURE_COORDINATES_COUNT,STRIDE)
     }
 
     fun draw(){

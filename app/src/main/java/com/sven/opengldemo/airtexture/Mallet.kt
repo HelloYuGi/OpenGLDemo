@@ -20,9 +20,9 @@ class Mallet{
         vertexArray = VertexArray(VERTEX_DATA)
     }
 
-    fun bindData(){
-        vertexArray.setVertexAttriPointer(0,1,POSITION_COMPONENT_COUNT,STRIDE)
-        vertexArray.setVertexAttriPointer(POSITION_COMPONENT_COUNT,1,COLOR_COMPONENT_COUNT,STRIDE)
+    fun bindData(colorShaderProgram: ColorShaderProgram){
+        vertexArray.setVertexAttriPointer(0,colorShaderProgram.aPositionLocation,POSITION_COMPONENT_COUNT,STRIDE)
+        vertexArray.setVertexAttriPointer(POSITION_COMPONENT_COUNT,colorShaderProgram.aColorLocation,COLOR_COMPONENT_COUNT,STRIDE)
     }
 
     fun draw(){

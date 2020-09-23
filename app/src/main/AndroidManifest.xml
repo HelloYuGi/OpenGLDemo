@@ -13,7 +13,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".airhockey1.AirHockeyActivity2">
+        <activity android:name=".airtexture.TextureActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
